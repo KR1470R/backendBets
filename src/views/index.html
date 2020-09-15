@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+</head>
+<body>
+  <style>
+    body {
+      background-color: midnightblue;
+    }
+    a {
+      color: azure;
+      font-size: 50px;
+    }
+    li:hover {
+      cursor: pointer;
+    }
+  </style>
+  <center>
+    <h1 style="color:aliceblue;">Welcome!</h1>
+  </center>
+  <ul>
+    <li>
+      <a onclick="sendReq('/register')">Register</a>
+    </li>
+    <li>
+      <a onclick="sendReq('/check_pass')"">Check Pass</a>
+    </li>
+    <li>
+      <a onclick="sendReq('/send_message_email')">Send Message Email</a>
+    </li>
+    <li>
+      <a onclick="sendReq('/change_pass')">Change Pass</a>
+    </li>
+    <li>
+      <a onclick="sendReq('/bet_history')">Bet History</a>
+    </li>
+    <li>
+      <a onclick="sendReq('/create_bet')">Create Bet</a>
+    </li>
+
+    <li>
+      <a onclick="sendReq('/take_bet')">Take bet</a>
+    </li>
+    <li>
+      <a onclick="sendReq('/stop_take_bet')">Stop take bet</a>
+    </li>
+    <li>
+      <a onclick="sendReq('/defeat')">Defeat</a>
+    </li>
+    
+    <li>
+      <a onclick="sendReq('/cancel_bet')">Cancel Bet</a>
+    </li>
+
+    <li>
+      <a onclick="sendReq('/victory')">Victory</a>
+    </li>
+
+    <li>
+      <a onclick="sendReq('/add_streamer')"">Add Streamer</a>
+    </li>
+    <li>
+      <a onclick="sendReq('/remove_streamer')">Remove Streamer</a>
+    </li>
+    <li>
+      <a onclick="sendReq('/add_game')">Add game</a>
+    </li>
+    <li>
+      <a onclick="sendReq('/remove_game')">Remove game</a>
+    </li>
+
+  </ul>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+  <script>
+    // Добавить стримера(почта админа, хеш пароля админа, почта стримера, юзернейм стримера, ID игры стримера)  #
+    function sendReq(uri){
+      axios({
+        method: "post",
+        url: uri,
+        data: {
+          emailAdmin: "yaya@gmail.com",
+          passwordAdmin: "hash23",
+          emailStreamer: "kaka@gmail.com",
+          idGame: "1",
+          usernameTwitch: "Firamir",
+          idStreamer: 30,
+          email: "yaya@gmail.com",
+          password: "eblasdasdasdan",
+          idUser: 3,
+          id: 7,
+          sum: 500,
+          type: "Victory",
+          name: "GTA5",
+          token: "38ad9567-094c-4d25-8c74-9d2e47abb662"
+        }
+      }).then((res) => {
+        console.log(res.data)
+      }).catch(err => {
+        throw err.response.data
+      })
+    }
+  </script>
+</body>
+</html>
